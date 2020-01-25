@@ -1,9 +1,9 @@
 import React from 'react';
 
-const TopBar = () => {
+const TopBar = ({ user }) => {
     return (
         <div>
-            <h1>TopBar</h1>
+            <h3>Welcome {user.name}</h3>
         </div>
     )
 }
