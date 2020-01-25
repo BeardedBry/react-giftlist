@@ -1,10 +1,10 @@
 import React from 'react';
 import WishList from './WishList';
 
-const MainContent = () => {
+const MainContent = ({ user }) => {
     return (
         <main>
-            <WishList />
+            <WishList user={user}/>
         </main>
     );
 }
