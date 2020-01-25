@@ -1,9 +1,10 @@
 import React from 'react';
+import WishList from './WishList';
 
 const MainContent = () => {
     return (
         <main>
-            <p>Main Content</p>
+            <WishList />
         </main>
     );
 }
