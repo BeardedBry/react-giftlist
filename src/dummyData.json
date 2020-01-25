@@ -10,7 +10,8 @@
             "dateAdded": "",
             "dateRemoved": null,
             "datePurchased": "",
-            "cost": ""
+            "cost": "",
+            "state": "saved"
         },
         {
             "name": "coffee",
@@ -21,7 +22,8 @@
             "dateAdded": "",
             "dateRemoved": null,
             "datePurchased": "",
-            "cost": ""
+            "cost": "",
+            "state": "edit"
         }
     ]
 }

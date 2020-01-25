@@ -9,6 +9,7 @@ const WishList = ({ user }) => {
                 <p>Approximate total cost: $$</p>
             </div>
             <div className="WishList-body">
+                <button>+</button>
                 <ul>
                     { user.wishlist.map( (item) => {
                         return <li><ListItem data={item} /></li>
