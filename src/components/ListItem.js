@@ -2,7 +2,11 @@ import React from 'react';
 
 const ListItem = ({ data }) => {
     return (
-        <p>{data.name}</p>
+        <div className="WishList-ListItem">
+            {data.name}
+            {data.cost}
+            {data.description}
+        </div>
     );
 }
 

@@ -6,6 +6,10 @@ import SideBar from './components/SideBar';
 import MainContent from './components/MainContent';
 import info from './dummyData.json';
 
+const addItem = () => {
+  
+}
+
 
 function App() {
 
@@ -14,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <TopBar user={userInfo}/>
-      <SideBar user={userInfo}/>
+      {/* <SideBar user={userInfo}/> */}
       <MainContent user={userInfo}/>
     </div>
   );
