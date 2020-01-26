@@ -3,11 +3,11 @@ import ListItem from './ListItem';
 
 const WishList = ({ list, setWishList }) => {
 
+    // Flexible function for modifying the wishlist state
     const modifyList = (id, property, value) => {
         const prevState = [...list];
         const listItem = prevState.filter(obj => obj.id === id );
         listItem[0][property] = value;
-        //console.log(prevState);
         setWishList(prevState);
     }
 
