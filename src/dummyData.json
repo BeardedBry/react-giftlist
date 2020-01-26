@@ -24,6 +24,18 @@
             "datePurchased": "",
             "cost": "",
             "state": "edit"
+        },
+        {
+            "name": "Amp",
+            "id": "ghijgjhg",
+            "url": "",
+            "description": "",
+            "purchased": false,
+            "dateAdded": "",
+            "dateRemoved": null,
+            "datePurchased": "",
+            "cost": "",
+            "state": "saved"
         }
     ]
 }
