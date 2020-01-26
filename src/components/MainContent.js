@@ -1,10 +1,13 @@
 import React from 'react';
 import WishList from './WishList';
 
-const MainContent = ({ user }) => {
+const MainContent = ({ wishlist, setWishList }) => {
     return (
         <main>
-            <WishList user={user}/>
+            <WishList 
+                list={wishlist}
+                setWishList={setWishList}
+            />
         </main>
     );
 }

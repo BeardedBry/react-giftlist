@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ListItem = ({ data }) => {
+const ListItem = ({ data, modifyList }) => {
 
     // show different if field is saved or being edited.
     if(data.state === 'saved'){
@@ -18,7 +18,18 @@ const ListItem = ({ data }) => {
             <form>
                 <label>
                     Name:
-                    <input value={data.name} />
+                    <input
+                        type="text"
+                        name="name"
+                        value={data.name}
+                        onChange={( {target} )=> {
+                            // console.log(data.id);
+                            // console.log(target.name)
+                            // console.log(target.value);
+                            modifyList(data.id, target.name, target.value);
+                        }
+                        }
+                    />
                 </label>
                 <label>
                     Description:

@@ -1,18 +1,27 @@
 import React from 'react';
 import ListItem from './ListItem';
 
-const WishList = ({ user }) => {
+const WishList = ({ list, setWishList }) => {
+
+    const modifyList = (id, property, value) => {
+        const prevState = [...list];
+        const listItem = prevState.filter(obj => obj.id === id );
+        listItem[0][property] = value;
+        //console.log(prevState);
+        setWishList(prevState);
+    }
+
     return (
         <div className="WishList">
             <div className="WishList-header">
-                <p>Wish List: ({user.wishlist.length}) items</p>
+                <p>Wish List: ({list.length}) items</p>
                 <p>Approximate total cost: $$</p>
             </div>
             <div className="WishList-body">
                 <button>+</button>
                 <ul>
-                    { user.wishlist.map( (item) => {
-                        return <li><ListItem data={item} /></li>
+                    { list.map( (item) => {
+                        return <li><ListItem data={item} modifyList={modifyList}/></li>
                     })}
                 </ul>
             </div>
