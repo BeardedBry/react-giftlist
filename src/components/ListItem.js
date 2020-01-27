@@ -4,6 +4,7 @@ const ListItem = ({ data, modifyItem, removeItem }) => {
     //modifyItem = (id, property, value)
     //removeItem = (id)
 
+    // TODO: refactor so both states aren't seperate return statements.
     // show different if field is saved or being edited.
     if(data.state === 'saved'){ // SAVED state
         return (
