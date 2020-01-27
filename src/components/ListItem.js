@@ -1,26 +1,32 @@
 import React from 'react';
 
-const ListItem = ({ data, modifyList }) => {
-    //modifyList = (id, property, value)
+const ListItem = ({ data, modifyItem, removeItem }) => {
+    //modifyItem = (id, property, value)
+    //removeItem = (id)
 
     // show different if field is saved or being edited.
-    if(data.state === 'saved'){
+    if(data.state === 'saved'){ // SAVED state
         return (
             <div className="WishList-ListItem">
                 {data.name}
                 {data.cost}
                 {data.description}
-                <button onClick={()=>modifyList(data.id, 'state', 'edit')}>
+                <button onClick={()=>modifyItem(data.id, 'state', 'edit')}>
                     Edit
                 </button>
-                <button>Remove</button>
+                <button onClick={()=>removeItem(data.id)}>Remove</button>
             </div>
         )
-    } else if(data.state === 'edit') {
+    } else if(data.state === 'edit') { // EDIT state
         return (
             <form onSubmit={(e)=>{
                 e.preventDefault();
-                modifyList(data.id, 'state', 'saved');
+                if(!e.target.name.value){
+                    // show error
+                    e.target.name.placeholder="Please enter a value";
+                    return;
+                }
+                modifyItem(data.id, 'state', 'saved');
             }}>
                 <label>
                     Name:
@@ -29,7 +35,7 @@ const ListItem = ({ data, modifyList }) => {
                         name="name" // has to match state object id
                         value={data.name}
                         onChange={( {target} )=> {
-                            modifyList(data.id, target.name, target.value);
+                            modifyItem(data.id, target.name, target.value);
                             }
                         }
                     />
@@ -41,7 +47,7 @@ const ListItem = ({ data, modifyList }) => {
                         name="description"
                         type="textarea"
                         onChange={( {target} )=> {
-                            modifyList(data.id, target.name, target.value);
+                            modifyItem(data.id, target.name, target.value);
                             }
                         } 
                     />
@@ -50,7 +56,9 @@ const ListItem = ({ data, modifyList }) => {
                     type="submit" 
                     value="Save"
                 />
-                <button>Remove</button>
+                <button onClick={()=>removeItem(data.id)}>
+                    Remove
+                </button>
             </form>
         )
     }

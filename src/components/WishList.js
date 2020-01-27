@@ -2,8 +2,16 @@ import React from 'react';
 import ListItem from './ListItem';
 
 const WishList = ({ list, setWishList }) => {
+
+    const removeListItem = (id) => {
+        const prevState = [...list];
+        const newState = prevState.filter(obj => obj.id !== id);
+        console.log(newState);
+        setWishList(newState);
+    }
+    
     // Flexible function for modifying the wishlist state
-    const modifyList = (id, property, value) => {
+    const modifyListItem = (id, property, value) => {
         const prevState = [...list];
         const listItem = prevState.filter(obj => obj.id === id );
         listItem[0][property] = value;
@@ -36,7 +44,15 @@ const WishList = ({ list, setWishList }) => {
                 <button onClick={addToList} >+</button>
                 <ul>
                     { list.map( (item) => {
-                        return <li><ListItem data={item} modifyList={modifyList}/></li>
+                        return (
+                            <li>
+                                <ListItem 
+                                    data={item} 
+                                    modifyItem={modifyListItem}
+                                    removeItem={removeListItem}
+                                />
+                            </li>
+                        )
                     })}
                 </ul>
             </div>
