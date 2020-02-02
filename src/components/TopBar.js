@@ -1,6 +1,11 @@
-import React from 'react';
+import React,{ useContext } from 'react';
+import UserContext from '../context/UserContext';
 
-const TopBar = ({ user }) => {
+const TopBar = () => {
+
+    const context = useContext(UserContext);
+    const user = context.userInfo;
+
     return (
         <div className="TopBar">
             <h3>Welcome {user}!!</h3>

@@ -1,7 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import ListItem from './ListItem';
+import UserContext from '../context/UserContext';
 
-const WishList = ({ list, setWishList }) => {
+const WishList = () => {
+
+    const context = useContext(UserContext);
+    const list = context.wishList;
+    const setWishList = context.setWishList;
 
     const removeListItem = (id) => {
         const prevState = [...list];
@@ -47,6 +52,7 @@ const WishList = ({ list, setWishList }) => {
                         return (
                             <li>
                                 <ListItem 
+                                    key={item.id}
                                     data={item} 
                                     modifyItem={modifyListItem}
                                     removeItem={removeListItem}
