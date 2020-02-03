@@ -1,8 +1,38 @@
 import React, {useContext} from 'react';
 import ListItem from './ListItem';
+import ListItemEdit from './ListItemEdit';
 import UserContext from '../context/UserContext';
 
+
 const WishList = () => {
+
+    // List item for 'save' state
+    const listItemJsx = (item) => {
+        return (
+        <li>
+        <ListItem 
+            key={item.id}
+            data={item} 
+            modifyItem={modifyListItem}
+            removeItem={removeListItem}
+        />
+        </li>
+        )
+    };
+    
+    // list item for 'edit' state
+    const listItemEditJsx = (item) => {
+        return (
+        <li>
+        <ListItemEdit
+            key={item.id}
+            data={item} 
+            modifyItem={modifyListItem}
+            removeItem={removeListItem}
+        />
+        </li>
+        )
+    };
 
     const context = useContext(UserContext);
     const list = context.wishList;
@@ -50,14 +80,7 @@ const WishList = () => {
                 <ul>
                     { list.map( (item) => {
                         return (
-                            <li>
-                                <ListItem 
-                                    key={item.id}
-                                    data={item} 
-                                    modifyItem={modifyListItem}
-                                    removeItem={removeListItem}
-                                />
-                            </li>
+                            item.state === 'edit' ? listItemEditJsx(item) : listItemJsx(item)
                         )
                     })}
                 </ul>
