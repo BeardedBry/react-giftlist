@@ -1,24 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-import './components/TopBar';
 import TopBar from './components/TopBar';
-import SideBar from './components/SideBar';
 import MainContent from './components/MainContent';
+import { Router, Route, Switch } from "react-router-dom";
+import Profile from "./components/Profile";
+import history from "./utils/history";
 
 
 function App() {
 
-  // const modifyList= (id, property, value) => {
-  //   const prevState = {...wishList};
-  //   const listItem = prevState.filter(obj => obj.id === id );
-  //   listItem[property] = value;
-  //   console.dir(prevState);
-  // }
+
   return (
     <div className="App">
-      <TopBar />
+      <Router history={history}>
+      <header>
+        <TopBar />
+      </header>
+      <Switch>
+          <Route path="/" exact />
+          <Route path="/profile" component={Profile} />
+          <Route path="/list" component={MainContent} />
+      </Switch>
+
+      </Router>
+     
       {/* <SideBar user={userInfo}/> */}
-      <MainContent />
+      {/* <MainContent /> */}
     </div>
   );
 }
