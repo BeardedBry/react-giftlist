@@ -41,7 +41,7 @@ const WishList = () => {
     const removeListItem = (id) => {
         const prevState = [...list];
         const newState = prevState.filter(obj => obj.id !== id);
-        console.log(newState);
+        //console.log(newState);
         setWishList(newState);
     }
     
@@ -69,11 +69,16 @@ const WishList = () => {
         setWishList([addition, ...list]);
     }
 
+    const saveList = () => {
+        
+    }
+
     return (
         <div className="WishList">
             <div className="WishList-header">
                 <p>Wish List: ({list.length}) items</p>
                 <p>Approximate total cost: $$</p>
+                <button onClick={saveList}>Save Changes</button>
             </div>
             <div className="WishList-body">
                 <button onClick={addToList} >+</button>
