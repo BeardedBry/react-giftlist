@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import ListItem from './ListItem';
 import ListItemEdit from './ListItemEdit';
 import UserContext from '../context/UserContext';
+import axios from 'axios';
 
 
 const WishList = () => {
@@ -36,6 +37,7 @@ const WishList = () => {
 
     const context = useContext(UserContext);
     const list = context.wishList;
+    console.log(list);
     const setWishList = context.setWishList;
 
     const removeListItem = (id) => {
@@ -69,8 +71,8 @@ const WishList = () => {
         setWishList([addition, ...list]);
     }
 
-    const saveList = () => {
-        
+    const saveList = async() => {
+        await axios.get('')
     }
 
     return (
